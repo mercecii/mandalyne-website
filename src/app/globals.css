@@ -6,12 +6,27 @@
   --deep: #6B5410;
   --ivory: #FBF6EA;
   --ink: #3a332a;
+
+  --bg-dark: #120f09;
+  --bg-dark-2: #1b160d;
+  --line: #46391f;
+  --text-light: #f3ead6;
+  --text-muted: #b3a07c;
+
   --font-playfair: "Playfair Display", Georgia, "Liberation Serif", serif;
   --font-cormorant: "Cormorant Garamond", Georgia, "Liberation Serif", serif;
 }
 
 body {
-  background: var(--ivory);
-  color: var(--ink);
+  background: var(--bg-dark);
+  color: var(--text-light);
   font-family: var(--font-cormorant);
+}
+
+.eyebrow {
+  font-family: var(--font-playfair);
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
 }

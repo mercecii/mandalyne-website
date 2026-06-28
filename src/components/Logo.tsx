@@ -1,9 +1,19 @@
-export function MandalaMotif({ className = "" }: { className?: string }) {
+const PETAL_DEGREES = [0, 45, 90, 135, 180, 225, 270, 315];
+
+export function MandalaMotif({
+  className = "",
+  ringColor = "#8B6F1A",
+  petalColor = "#C9A227",
+}: {
+  className?: string;
+  ringColor?: string;
+  petalColor?: string;
+}) {
   return (
     <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" className={className}>
-      <circle cx="256" cy="256" r="230" fill="none" stroke="#8B6F1A" strokeWidth="4" />
-      <g fill="#C9A227">
-        {[0, 45, 90, 135, 180, 225, 270, 315].map((deg) => (
+      <circle cx="256" cy="256" r="230" fill="none" stroke={ringColor} strokeWidth="4" />
+      <g fill={petalColor}>
+        {PETAL_DEGREES.map((deg) => (
           <path
             key={deg}
             d="M256,200 C242,160 234,110 256,66 C278,110 270,160 256,200 Z"
@@ -11,8 +21,8 @@ export function MandalaMotif({ className = "" }: { className?: string }) {
           />
         ))}
       </g>
-      <g fill="#8B6F1A">
-        {[0, 45, 90, 135, 180, 225, 270, 315].map((deg) => (
+      <g fill={ringColor}>
+        {PETAL_DEGREES.map((deg) => (
           <circle
             key={deg}
             cx="313.4"
@@ -22,8 +32,8 @@ export function MandalaMotif({ className = "" }: { className?: string }) {
           />
         ))}
       </g>
-      <circle cx="256" cy="256" r="40" fill="#8B6F1A" />
-      <circle cx="256" cy="256" r="32" fill="#C9A227" />
+      <circle cx="256" cy="256" r="40" fill={ringColor} />
+      <circle cx="256" cy="256" r="32" fill={petalColor} />
     </svg>
   );
 }
@@ -34,7 +44,7 @@ export function MandalyneWordmark({ className = "" }: { className?: string }) {
       <g transform="translate(150,140) scale(0.4783) translate(-256,-256)">
         <circle cx="256" cy="256" r="230" fill="none" stroke="#8B6F1A" strokeWidth="4" />
         <g fill="#C9A227">
-          {[0, 45, 90, 135, 180, 225, 270, 315].map((deg) => (
+          {PETAL_DEGREES.map((deg) => (
             <path
               key={deg}
               d="M256,200 C242,160 234,110 256,66 C278,110 270,160 256,200 Z"
@@ -43,7 +53,7 @@ export function MandalyneWordmark({ className = "" }: { className?: string }) {
           ))}
         </g>
         <g fill="#8B6F1A">
-          {[0, 45, 90, 135, 180, 225, 270, 315].map((deg) => (
+          {PETAL_DEGREES.map((deg) => (
             <circle
               key={deg}
               cx="313.4"
@@ -60,5 +70,15 @@ export function MandalyneWordmark({ className = "" }: { className?: string }) {
         Mandalyne
       </text>
     </svg>
+  );
+}
+
+export function MandalyneScriptmark({ className = "" }: { className?: string }) {
+  return (
+    <span
+      className={`font-[family-name:var(--font-playfair)] italic tracking-wide ${className}`}
+    >
+      Mandalyne
+    </span>
   );
 }

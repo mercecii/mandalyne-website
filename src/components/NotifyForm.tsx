@@ -14,7 +14,7 @@ export default function NotifyForm() {
 
   if (submitted) {
     return (
-      <p className="mb-9 text-[15px] text-[var(--bronze)] font-[family-name:var(--font-cormorant)]">
+      <p className="mb-2 font-[family-name:var(--font-cormorant)] text-[15px] text-[var(--gold)]">
         Thank you — we&apos;ll be in touch when Mandalyne launches.
       </p>
     );
@@ -30,16 +30,16 @@ export default function NotifyForm() {
           type="email"
           required
           placeholder="your@email.com"
-          className="min-w-[220px] flex-1 rounded-sm border border-[#d9c79a] bg-white px-4 py-[14px] font-[family-name:var(--font-cormorant)] text-base text-[var(--ink)] outline-none focus:border-[var(--gold)]"
+          className="min-w-[220px] flex-1 rounded-sm border border-[var(--line)] bg-transparent px-4 py-[14px] font-[family-name:var(--font-cormorant)] text-base text-[var(--text-light)] placeholder:text-[var(--text-muted)] outline-none focus:border-[var(--gold)]"
         />
         <button
           type="submit"
-          className="rounded-sm bg-[var(--bronze)] px-[26px] py-[14px] font-[family-name:var(--font-playfair)] text-[13px] uppercase tracking-[0.08em] text-white transition-colors hover:bg-[var(--deep)]"
+          className="rounded-sm bg-[var(--gold)] px-[26px] py-[14px] font-[family-name:var(--font-playfair)] text-[13px] uppercase tracking-[0.08em] text-[var(--bg-dark)] transition-colors hover:bg-[var(--text-light)]"
         >
           Notify Me
         </button>
       </form>
-      <p className="mb-9 text-[13px] text-[#8a7d62]">
+      <p className="text-[13px] text-[var(--text-muted)]">
         We&apos;ll only email you about launch — no spam.
       </p>
     </>
