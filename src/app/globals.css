@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+:root {
+  --gold: #C9A227;
+  --bronze: #8B6F1A;
+  --deep: #6B5410;
+  --ivory: #FBF6EA;
+  --ink: #3a332a;
+  --font-playfair: "Playfair Display", Georgia, "Liberation Serif", serif;
+  --font-cormorant: "Cormorant Garamond", Georgia, "Liberation Serif", serif;
+}
+
+body {
+  background: var(--ivory);
+  color: var(--ink);
+  font-family: var(--font-cormorant);
+}
