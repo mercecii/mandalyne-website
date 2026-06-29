@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Privacy Policy — Mandalyne",
+  description:
+    "How Mandalyne handles your information — what we collect, how purchases work through Amazon, and our cookie policy.",
 };
 
 export default function PrivacyPolicyPage() {

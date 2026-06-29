@@ -3,7 +3,8 @@ import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
   title: "Contact — Mandalyne",
-  description: "Get in touch with Mandalyne.",
+  description:
+    "Have a question about a Mandalyne piece, sizing, or an Amazon order? Send us a message and we'll reply by email.",
 };
 
 export default function ContactPage() {

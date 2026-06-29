@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Terms of Service — Mandalyne",
+  description:
+    "Terms of use for the Mandalyne website — product information, purchases via Amazon, and intellectual property.",
 };
 
 export default function TermsPage() {
