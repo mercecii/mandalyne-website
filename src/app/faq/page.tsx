@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "FAQ — Mandalyne",
-  description: "Frequently asked questions about Mandalyne jewelry.",
+  description:
+    "Answers to common questions about Mandalyne jewelry — materials, sizing, Amazon checkout, care, and shipping.",
 };
 
 const faqs = [
@@ -32,31 +33,50 @@ const faqs = [
   },
 ];
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map(({ q, a }) => ({
+    "@type": "Question",
+    name: q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: a,
+    },
+  })),
+};
+
 export default function FAQPage() {
   return (
-    <main className="px-6 pt-32 pb-24 sm:px-10 md:pb-32">
-      <div className="text-center">
-        <p className="eyebrow">Questions</p>
-        <h1 className="mx-auto mt-4 max-w-md font-[family-name:var(--font-playfair)] text-[32px] italic text-[var(--text-light)] sm:text-[38px]">
-          Frequently asked questions
-        </h1>
-      </div>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <main className="px-6 pt-32 pb-24 sm:px-10 md:pb-32">
+        <div className="text-center">
+          <p className="eyebrow">Questions</p>
+          <h1 className="mx-auto mt-4 max-w-md font-[family-name:var(--font-playfair)] text-[32px] italic text-[var(--text-light)] sm:text-[38px]">
+            Frequently asked questions
+          </h1>
+        </div>
 
-      <div className="mx-auto mt-14 max-w-2xl divide-y divide-[var(--line)]">
-        {faqs.map(({ q, a }) => (
-          <details key={q} className="group py-5">
-            <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-[family-name:var(--font-playfair)] text-[15px] text-[var(--text-light)] marker:content-none">
-              {q}
-              <span className="shrink-0 text-[var(--gold)] transition-transform group-open:rotate-45">
-                +
-              </span>
-            </summary>
-            <p className="mt-3 font-[family-name:var(--font-cormorant)] text-[15px] leading-[1.7] text-[var(--text-muted)]">
-              {a}
-            </p>
-          </details>
-        ))}
-      </div>
-    </main>
+        <div className="mx-auto mt-14 max-w-2xl divide-y divide-[var(--line)]">
+          {faqs.map(({ q, a }) => (
+            <details key={q} className="group py-5">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-[family-name:var(--font-playfair)] text-[15px] text-[var(--text-light)] marker:content-none">
+                {q}
+                <span className="shrink-0 text-[var(--gold)] transition-transform group-open:rotate-45">
+                  +
+                </span>
+              </summary>
+              <p className="mt-3 font-[family-name:var(--font-cormorant)] text-[15px] leading-[1.7] text-[var(--text-muted)]">
+                {a}
+              </p>
+            </details>
+          ))}
+        </div>
+      </main>
+    </>
   );
 }
