@@ -4,41 +4,35 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  weight: ["500", "600"],
-  variable: "--font-playfair",
-  display: "swap",
-});
-
-const cormorant = Cormorant_Garamond({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  style: ["normal", "italic"],
-  variable: "--font-cormorant",
-  display: "swap",
-});
+const siteUrl = "https://mandalyne-website.vercel.app";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://mandalyne.in"),
-  title: "Mandalyne — Jewelry Inspired by Symmetry",
+  title: {
+    default: "Mandalyne — Jewelry Inspired by Symmetry",
+    template: "%s | Mandalyne",
+  },
   description:
-    "Mandalyne — artificial jewelry inspired by symmetry. Rings, earrings, and necklaces designed around radial geometry.",
+    "Mandalyne — artificial fashion jewelry inspired by the geometry of mandalas. Shop rings, earrings, and necklaces. Buy on Amazon.",
+  metadataBase: new URL(siteUrl),
   openGraph: {
     siteName: "Mandalyne",
     type: "website",
     locale: "en_IN",
-    images: [
-      {
-        url: "/opengraph-image",
-        width: 1200,
-        height: 630,
-        alt: "Mandalyne — Jewelry inspired by symmetry",
-      },
-    ],
+    url: siteUrl,
+    title: "Mandalyne — Jewelry Inspired by Symmetry",
+    description:
+      "Artificial fashion jewelry inspired by the geometry of mandalas. Shop rings, earrings & necklaces on Amazon.",
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
+    title: "Mandalyne — Jewelry Inspired by Symmetry",
+    description:
+      "Artificial fashion jewelry inspired by the geometry of mandalas.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true },
   },
 };
 

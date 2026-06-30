@@ -1,21 +1,22 @@
 import type { MetadataRoute } from "next";
 import { products } from "@/data/products";
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://mandalyne.in";
-
 export default function sitemap(): MetadataRoute.Sitemap {
+  const base = "https://mandalyne-website.vercel.app";
+
   const staticRoutes: MetadataRoute.Sitemap = [
-    { url: BASE_URL, changeFrequency: "monthly", priority: 1 },
-    { url: `${BASE_URL}/shop`, changeFrequency: "weekly", priority: 0.9 },
-    { url: `${BASE_URL}/faq`, changeFrequency: "monthly", priority: 0.7 },
-    { url: `${BASE_URL}/contact`, changeFrequency: "monthly", priority: 0.6 },
-    { url: `${BASE_URL}/legal/privacy-policy`, changeFrequency: "yearly", priority: 0.3 },
-    { url: `${BASE_URL}/legal/terms`, changeFrequency: "yearly", priority: 0.3 },
+    { url: base, lastModified: new Date(), changeFrequency: "weekly", priority: 1 },
+    { url: `${base}/shop`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.9 },
+    { url: `${base}/contact`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.5 },
+    { url: `${base}/faq`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.5 },
+    { url: `${base}/legal/privacy-policy`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.2 },
+    { url: `${base}/legal/terms`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.2 },
   ];
 
   const productRoutes: MetadataRoute.Sitemap = products.map((p) => ({
-    url: `${BASE_URL}/shop/${p.slug}`,
-    changeFrequency: "monthly",
+    url: `${base}/shop/${p.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
     priority: 0.8,
   }));
 
