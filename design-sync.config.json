@@ -1,0 +1,24 @@
+{
+  "pkg": "mandalyne-website",
+  "globalName": "Mandalyne",
+  "projectId": "320374f8-5216-4196-9385-17492f9476d3",
+  "shape": "package",
+  "tsconfig": "tsconfig.ds.json",
+  "cssEntry": "src/ds-css-out/styles.css",
+  "runtimeFontPrefixes": ["Playfair Display", "Cormorant Garamond"],
+  "buildCmd": "node build-ds-css.mjs",
+  "componentSrcMap": {
+    "MandalaMotif": "src/components/Logo.tsx",
+    "MandalyneWordmark": "src/components/Logo.tsx",
+    "MandalyneScriptmark": "src/components/Logo.tsx",
+    "RingIcon": "src/components/Icons.tsx",
+    "EarringIcon": "src/components/Icons.tsx",
+    "NecklaceIcon": "src/components/Icons.tsx",
+    "ProductVisual": "src/components/ProductVisual.tsx",
+    "ProductCard": "src/components/ProductCard.tsx",
+    "ContactForm": "src/components/ContactForm.tsx",
+    "NotifyForm": "src/components/NotifyForm.tsx",
+    "Header": "src/components/Header.tsx",
+    "Footer": "src/components/Footer.tsx"
+  }
+}
