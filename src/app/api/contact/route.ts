@@ -1,9 +1,7 @@
 import { Resend } from "resend";
 import { NextResponse } from "next/server";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
-// TODO: Once you have a custom domain verified in Resend, change this to:
+// TODO: Once you have a custom domain verified in Resend, change FROM to:
 // "Mandalyne <contact@mandalyne.com>" (or whatever domain you pick)
 const FROM = "Mandalyne <onboarding@resend.dev>";
 const TO_DEEPAK = "d9572712747@gmail.com";
@@ -14,6 +12,15 @@ export async function POST(req: Request) {
   if (!name || !email || !message) {
     return NextResponse.json({ error: "Missing fields" }, { status: 400 });
   }
+
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) {
+    console.error("[contact] RESEND_API_KEY not set");
+    return NextResponse.json({ error: "Email service not configured" }, { status: 503 });
+  }
+
+  // Initialise lazily so build succeeds without the env var
+  const resend = new Resend(apiKey);
 
   try {
     // 1. Notify Deepak — reply-to is the visitor so hitting Reply in Gmail goes to them
